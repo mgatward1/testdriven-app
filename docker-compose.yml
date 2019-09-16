@@ -30,7 +30,7 @@ services:
 
   nginx:
     build:
-      context: ./services/nginx
+      context: ./services/nginx # new
       dockerfile: Dockerfile
     restart: always
     ports:
