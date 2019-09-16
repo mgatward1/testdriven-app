@@ -16,9 +16,10 @@ api = Api(users_blueprint)
 class UsersPing(Resource):
     def get(self):
         return {
-        'status': 'success',
-        'message': 'pong!'
-    }
+            'status': 'success',
+            'message': 'pong!'
+        }
+
 
 class UsersList(Resource):
     def post(self):
@@ -40,7 +41,7 @@ class UsersList(Resource):
                 response_object['message'] = f'{email} was added!'
                 return response_object, 201
             else:
-                response_object['message'] = 'Sorry. That email already exists.'
+                response_object['message'] = 'Sorry. That email already exists'
                 return response_object, 400
         except exc.IntegrityError:
             db.session.rollback()
@@ -55,7 +56,7 @@ class UsersList(Resource):
             }
         }
         return response_object, 200
- 
+
 
 class Users(Resource):
     def get(self, user_id):
