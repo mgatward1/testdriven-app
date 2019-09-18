@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
 
 import UsersList from './components/UsersList';
-import AddUser from './components/AddUser';
 
 import About from './components/About';
 import NavBar from './components/NavBar';
@@ -103,28 +102,26 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar title={this.state.title} />
+        <NavBar
+        title={this.state.title}
+        isAuthenticated={this.state.isAuthenticated}  // new
+        />
         <section className="section">
           <div className="container">
             <div className="columns">
               <div className="column is-half">
                 <br/>
                 <Switch>
-                  <Route exact path='/' render={() => (
-                    <div>
-                      <h1 className="title is-1">All Users</h1>
-                      <hr/><br/>
-                      <AddUser
-                        username={this.state.username}
-                        email={this.state.email}
-                        addUser={this.addUser}
-                        handleChange={this.handleChange}
-                      />
-                      <br/><br/>
-                      <UsersList users={this.state.users}/>
-                    </div>
+                <Route exact path='/' render={() => (
+                  <UsersList
+                  users={this.state.users}
+                  />
+                  )} /> />
+                  <Route exact path='/status' render={() => (
+                  <UserStatus
+                  isAuthenticated={this.state.isAuthenticated}
+                  />
                   )} />
-                  <Route exact path='/status' component={UserStatus}/>
                   <Route exact path='/register' render={() => (
                   <Form
                   formType={'Register'}
