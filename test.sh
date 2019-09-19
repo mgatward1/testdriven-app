@@ -59,10 +59,10 @@ elif [[ "${type}" == "client" ]]; then
   echo "\n"
   echo "Running client-side tests!\n"
   client
-#elif [[ "${type}" == "e2e" ]]; then
-#  echo "\n"
-#  echo "Running e2e tests!\n"
-#  e2e
+elif [[ "${type}" == "e2e" ]]; then
+  echo "\n"
+  echo "Running e2e tests!\n"
+  e2e
 else
   echo "\n"
   echo "Running all tests!\n"
