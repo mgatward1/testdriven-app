@@ -2,7 +2,4 @@ __pycache__
 env
 htmlcov
 ./node_modules/.bin/cypress open
-./cypress/integration/login.spec.js
-./cypress/integration/message.spec.js
-./cypress/integration/register.spec.js
-./cypress/integration/status.spec.js
+
