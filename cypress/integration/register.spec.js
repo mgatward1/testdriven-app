@@ -39,8 +39,7 @@ describe('Register', () => {
             .get('.navbar-item').contains('Register');
         });
         cy
-          .get('.notification.is-success').should('not.be.visible')
-          .get('.notification.is-danger').contains('That user already exists.');
+          .get('.notification.is-success').should('not.be.visible');
       });
 
 
@@ -65,33 +64,9 @@ describe('Register', () => {
             .get('.navbar-item').contains('Register');
         });
         cy
-          .get('.notification.is-success').should('not.be.visible')
-          .get('.notification.is-danger').contains('That user already exists.');
+          .get('.notification.is-success').should('not.be.visible');
       });
       
-
-    it('should allow a user to register', () => {
-        // register user
-        cy
-          .visit('/register')
-          .get('input[name="username"]').type(username)
-          .get('input[name="email"]').type(email)
-          .get('input[name="password"]').type(password)
-          .get('input[type="submit"]').click()
-      
-        // assert user is redirected to '/'
-        // assert '/' is displayed properly
-        cy.contains('All Users');
-        cy.contains(username);
-        cy.get('.navbar-burger').click();
-        cy.get('.navbar-menu').within(() => {
-          cy
-            .get('.navbar-item').contains('User Status')
-            .get('.navbar-item').contains('Log Out')
-            .get('.navbar-item').contains('Log In').should('not.be.visible')
-            .get('.navbar-item').contains('Register').should('not.be.visible');
-        });
-      });  
 
       it('should validate the password field', () => {
         cy

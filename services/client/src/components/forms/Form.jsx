@@ -26,7 +26,7 @@ class Form extends Component {
     this.clearForm();
     this.validateForm();
   };
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (this.props.formType !== nextProps.formType) {
       this.clearForm();
       this.validateForm();
@@ -99,25 +99,19 @@ class Form extends Component {
     if (this.props.formType === 'Register') {
       formRules = registerFormRules;
     }
-    // eslint-disable-next-line
     for (const rule of formRules) {
-      // eslint-disable-next-line
       if (!rule.valid) return false;
     }
     return true;
   };
   resetRules() {
     const registerFormRules = this.state.registerFormRules;
-    // eslint-disable-next-line
     for (const rule of registerFormRules) {
-      // eslint-disable-next-line
       rule.valid = false;
     }
     this.setState({registerFormRules: registerFormRules})
     const loginFormRules = this.state.loginFormRules;
-    // eslint-disable-next-line
     for (const rule of loginFormRules) {
-      // eslint-disable-next-line
       rule.valid = false;
     }
     this.setState({loginFormRules: loginFormRules})
