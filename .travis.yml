@@ -30,7 +30,7 @@ before_script:
   - npm install cypress@3.2.0
 
 script:
-  - bash test.sh stage
+  - bash test-ci.sh $TRAVIS_BRANCH
 
 # new
 after_success:
