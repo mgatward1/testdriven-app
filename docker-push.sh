@@ -27,7 +27,7 @@ then
      [ "$TRAVIS_BRANCH" == "production" ]
   then
     # users
-    docker build $USERS_REPO -t $USERS:$COMMIT -f Dockerfile-$DOCKER_ENV  # new
+    docker build $USERS_REPO -t $USERS:$COMMIT -f Dockerfile-$DOCKER_ENV  # new123
     docker tag $USERS:$COMMIT $REPO/$USERS:$TAG
     docker push $REPO/$USERS:$TAG
     # users db
