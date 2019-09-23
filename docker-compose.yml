@@ -44,17 +44,6 @@ services:
     depends_on:
       - users
 
-  nginx:
-    build:
-      context: ./services/nginx
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 80:80
-    depends_on:
-      - users
-      - client
-
   swagger:
     build:
       context: ./services/swagger
@@ -68,3 +57,16 @@ services:
       - URL=swagger.json  # new
     depends_on:
       - users
+
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - users
+      - client
+
+ 
