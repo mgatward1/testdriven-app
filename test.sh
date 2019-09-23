@@ -20,7 +20,7 @@ server() {
   docker-compose down
 }
 
-# run client-side tests
+# run client-side tests 1
 client() {
   docker-compose up -d --build
   docker-compose exec client npm test -- --coverage

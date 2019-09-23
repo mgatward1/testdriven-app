@@ -35,11 +35,13 @@ services:
       args:
         - NODE_ENV=production
         - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    # new
     expose:
       - 80
     depends_on:
       - users
 
+  # new
   swagger:
     build:
       context: ./services/swagger
