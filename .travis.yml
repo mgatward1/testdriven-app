@@ -35,3 +35,4 @@ script:
 # new123
 after_success:
   - bash ./docker-push.sh
+  - bash ./docker-deploy-stage.sh  # new123456

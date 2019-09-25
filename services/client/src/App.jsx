@@ -26,12 +26,13 @@ class App extends Component {
     this.createMessage = this.createMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
   };
-  
-  componentDidMount() {
-    this.getUsers();
+  componentWillMount() {
     if (window.localStorage.getItem('authToken')) {
       this.setState({ isAuthenticated: true });
     };
+  };
+  componentDidMount() {
+    this.getUsers();
   };
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
