@@ -20,7 +20,7 @@ server() {
   docker-compose down
 }
 
-# run client-side tests 1
+# run client-side tests
 client() {
   docker-compose up -d --build
   docker-compose exec client npm test -- --coverage
@@ -29,12 +29,13 @@ client() {
 }
 
 # run e2e tests
+# new
 e2e() {
-  docker-compose -f docker-compose-prod.yml up -d --build
-  docker-compose -f docker-compose-prod.yml exec users python manage.py recreate_db
+  docker-compose -f docker-compose-stage.yml up -d --build
+  docker-compose -f docker-compose-stage.yml exec users python manage.py recreate_db
   ./node_modules/.bin/cypress run --config baseUrl=http://localhost
   inspect $? e2e
-  docker-compose -f docker-compose-prod.yml down
+  docker-compose -f docker-compose-stage.yml down
 }
 
 # run all tests
