@@ -10,7 +10,7 @@ import Logout from './components/Logout';
 import UserStatus from './components/UserStatus';
 import Message from './components/Message';
 import Footer from './components/Footer';
-import Exercises from './components/Exercises';
+
 
 
 class App extends Component {
@@ -87,9 +87,7 @@ class App extends Component {
                 <br/>
                 <Switch>
                   <Route exact path='/' render={() => (
-                    <Exercises
-                      isAuthenticated={this.state.isAuthenticated}
-                    />
+                   <div>123</div>
                   )} />
                   <Route exact path='/all-users' render={() => (
                     <UsersList
