@@ -33,8 +33,7 @@ dev() {
 e2e() {
   docker-compose -f docker-compose-stage.yml up -d --build
   docker-compose -f docker-compose-stage.yml exec users python manage.py recreate_db
-  ./node_modules/.bin/cypress run --config baseUrl=http://localhost
-  inspect $? e2e
+# Removed some code look at the download to see changes
   docker-compose -f docker-compose-$1.yml down
 }
 
