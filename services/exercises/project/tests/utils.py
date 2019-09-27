@@ -18,4 +18,3 @@ def add_exercise(
     db.session.add(exercise)
     db.session.commit()
     return exercise
-    
