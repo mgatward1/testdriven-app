@@ -17,6 +17,11 @@ env:
   SWAGGER: test-driven-swagger
   SWAGGER_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/swagger
   SECRET_KEY: my_precious
+  EXERCISES: test-driven-exercises  # new
+  EXERCISES_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/exercises  # new
+  EXERCISES_DB: test-driven-exercises_db  # new
+  EXERCISES_DB_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/exercises/project/db  # new
+  SECRET_KEY: my_precious
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -26,6 +31,8 @@ before_install:
 
 before_script:
   - export REACT_APP_USERS_SERVICE_URL=http://127.0.0.1
+  - export REACT_APP_EXERCISES_SERVICE_URL=http://127.0.0.1  # new
+  - export REACT_APP_API_GATEWAY_URL=https://is7o7aahze.execute-api.eu-west-2.amazonaws.com/v1
   - npm install
   - npm install cypress@3.2.0
 
