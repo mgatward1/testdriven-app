@@ -7,14 +7,14 @@ import UsersList from '../UsersList';
 const users = [
   {
     'active': true,
-    'admin': false,  // new
+    'admin': false,
     'email': 'hermanmu@gmail.com',
     'id': 1,
     'username': 'michael'
   },
   {
     'active': true,
-    'admin': false,  // new
+    'admin': false,
     'email': 'michael@mherman.org',
     'id': 2,
     'username': 'michaelherman'
@@ -49,6 +49,6 @@ test('UsersList renders properly', () => {
 });
 
 test('UsersList renders a snapshot properly', () => {
-    const tree = renderer.create(<UsersList users={users}/>).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  const tree = renderer.create(<UsersList users={users}/>).toJSON();
+  expect(tree).toMatchSnapshot();
+});

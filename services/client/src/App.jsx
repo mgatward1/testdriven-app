@@ -9,6 +9,8 @@ import Form from './components/forms/Form';
 import Logout from './components/Logout';
 import UserStatus from './components/UserStatus';
 import Message from './components/Message';
+import Footer from './components/Footer';
+import Exercises from './components/Exercises';
 
 
 class App extends Component {
@@ -26,12 +28,13 @@ class App extends Component {
     this.createMessage = this.createMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
   };
-  
-  componentDidMount() {
-    this.getUsers();
+  componentWillMount() {
     if (window.localStorage.getItem('authToken')) {
       this.setState({ isAuthenticated: true });
     };
+  };
+  componentDidMount() {
+    this.getUsers();
   };
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
@@ -84,6 +87,11 @@ class App extends Component {
                 <br/>
                 <Switch>
                   <Route exact path='/' render={() => (
+                    <Exercises
+                      isAuthenticated={this.state.isAuthenticated}
+                    />
+                  )} />
+                  <Route exact path='/all-users' render={() => (
                     <UsersList
                       users={this.state.users}
                     />
@@ -121,6 +129,7 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <Footer/>
       </div>
     )
   }
