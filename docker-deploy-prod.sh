@@ -63,7 +63,7 @@ then
       register_definition
       update_service  # new
 
-      # exercises
+      # exercises 111
       service="testdriven-exercises-prod-service"
       template="ecs_exercises_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
