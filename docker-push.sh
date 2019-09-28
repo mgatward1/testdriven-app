@@ -11,6 +11,7 @@ then
     export DOCKER_ENV=prod
     # new
     export REACT_APP_USERS_SERVICE_URL="http://testdriven-production-alb-1063872360.eu-west-2.elb.amazonaws.com"
+    export REACT_APP_EXERCISES_SERVICE_URL="http://testdriven-production-alb-1063872360.eu-west-2.elb.amazonaws.com "  # new
     export DATABASE_URL="$AWS_RDS_URI"  # new
     export SECRET_KEY="$PRODUCTION_SECRET_KEY"  # new
   fi
